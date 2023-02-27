@@ -1,76 +1,130 @@
 ﻿using System.Xml.Linq;
 
-namespace XMLSamples {
-  /// <summary>
-  /// Demos showing various methods for creating new XML documents and nodes
-  /// </summary>
-  public class CreateViewModel {
-    #region CreateEmptyDocument Method
+namespace XMLSamples
+{
     /// <summary>
-    /// Write code to build a new XML document that is empty
+    /// Demos showing various methods for creating new XML documents and nodes
     /// </summary>
-    public XDocument CreateEmptyDocument() {
-      // TODO: Write your code here
-      XDocument doc = new XDocument();
+    public class CreateViewModel
+    {
+        #region CreateEmptyDocument Method
+        /// <summary>
+        /// Write code to build a new XML document that is empty
+        /// </summary>
+        public XDocument CreateEmptyDocument()
+        {
+            // TODO: Write your code here
+            XDocument doc = new XDocument();
 
-      // Display the Document
-      Console.WriteLine(doc);
+            // Display the Document
+            Console.WriteLine(doc);
 
-      return doc;
-    }
-    #endregion
+            return doc;
+        }
+        #endregion
 
-    #region CreateProductDocument Method
-    /// <summary>
-    /// Write code to build a new XML document with a new product element
-    /// </summary>
-    public XDocument CreateProductDocument() {
-      // TODO: Write your code here
-      XDocument doc = new();
+        #region CreateProductDocument Method
+        /// <summary>
+        /// Write code to build a new XML document with a new product element
+        /// </summary>
+        public XDocument CreateProductDocument()
+        {
+            // TODO: Write your code here
+            XDocument doc = new(
+                new XDeclaration("1.0", "utf-8", "yes"),
+                new XComment("Product Information"),
+                new XElement("Products",
+                    new XElement("Product",
+                        new XElement("ProductID", "1"),
+                        new XElement("Name", "Bicycle Helment"),
+                        new XElement("ProductNumber", "HELM-01"),
+                        new XElement("Color", "White"),
+                        new XElement("StandardCost", "24.49"),
+                        new XElement("ListPrice", "89.99"),
+                        new XElement("Size", "Medium")
+                        )
+                    )
+                );
 
-      // Display the Document
-      Console.WriteLine(doc);
+            // Display the Document
+            Console.WriteLine(doc);
 
-      return doc;
-    }
-    #endregion
+            return doc;
+        }
+        #endregion
 
-    #region CreateProductDocumentWithAttributes Method
-    /// <summary>
-    /// Write code to build a new XML document with a new product element and attributes
-    /// </summary>
-    public XDocument CreateProductDocumentWithAttributes() {
-      // TODO: Write your code here
-      XDocument doc = new();
+        #region CreateProductDocumentWithAttributes Method
+        /// <summary>
+        /// Write code to build a new XML document with a new product element and attributes
+        /// </summary>
+        public XDocument CreateProductDocumentWithAttributes()
+        {
+            // TODO: Write your code here
+            XDocument doc = new(
+                new XDeclaration("1.0", "utf-8", "yes"),
+                new XComment("Product Information"),
+                new XElement("Products",
+                    new XElement("Product",
+                        new XAttribute("ProductID", "1"),
+                        new XElement("Name", "Bicycle Helment"),
+                        new XElement("ProductNumber", "HELM-01"),
+                        new XElement("Color", "White"),
+                        new XElement("StandardCost", "24.49"),
+                        new XElement("ListPrice", "89.99"),
+                        new XElement("Size", "Medium")
+                        )
+                    )
+                );
 
-      // Display the Document
-      Console.WriteLine(doc);
+            // Display the Document
+            Console.WriteLine(doc);
 
-      return doc;
-    }
-    #endregion
+            return doc;
+        }
+        #endregion
 
-    #region CreateNestedXmlDocument Method
-    /// <summary>
-    /// Write code to create a nested XML document
-    /// </summary>
-    public XDocument CreateNestedXmlDocument() {
-      // TODO: Write your code here
-      XDocument doc = new();
+        #region CreateNestedXmlDocument Method
+        /// <summary>
+        /// Write code to create a nested XML document
+        /// </summary>
+        public XDocument CreateNestedXmlDocument()
+        {
+            // TODO: Write your code here
+            XDocument doc = new(
+                new XDeclaration("1.0", "utf-8", "yes"),
+                new XComment("Product Information"),
+                new XElement("Products",
+                    new XElement("Product",
+                        new XAttribute("ProductID", "1"),
+                        new XElement("Name", "Bicycle Helment"),
+                        new XElement("Sales",
+                            new XElement("SalesDetail",
+                                new XAttribute("SalesOrderID", "1"),
+                                new XElement("OrderDate",
+                                    new XElement("Year", "2023"),
+                                    new XElement("Month", "3"),
+                                    new XElement("Day", "1")
+                                    )
+                                )
+                            )
+                        )
+                    )
+                );
 
-      // Display the Document
-      Console.WriteLine(doc);
+            // Display the Document
+            Console.WriteLine(doc);
 
-      return doc;
-    }
-    #endregion
+            return doc;
+        }
+        #endregion
 
-    #region ParseStringIntoXDocument Method
-    /// <summary>
-    /// Create an XML string and parse that into an XML document using XDocument
-    /// </summary>
-    public XDocument ParseStringIntoXDocument() {
-      string xml = @"<Products>
+        #region ParseStringIntoXDocument Method
+        /// <summary>
+        /// Create an XML string and parse that into an XML document using XDocument
+        /// </summary>
+        public XDocument ParseStringIntoXDocument()
+        {
+            string xml = @"<Products>
                       <Product>
                         <ProductID>706</ProductID>
                         <Name>HL Road Frame - Red, 58</Name>
@@ -90,31 +144,32 @@ namespace XMLSamples {
                       </Product>
                     </Products>";
 
-      // Create XML Document using Parse()
-      XDocument doc = XDocument.Parse(xml);
+            // Create XML Document using Parse()
+            XDocument doc = XDocument.Parse(xml);
 
-      // Display XML Document
-      Console.WriteLine(doc);
+            // Display XML Document
+            Console.WriteLine(doc);
 
-      return doc;
+            return doc;
+        }
+        #endregion
+
+        #region ParseStringIntoXElement Method
+        /// <summary>
+        /// Create an XML string and parse that into an XML document using XElement
+        /// </summary>
+        public XElement ParseStringIntoXElement()
+        {
+            string xml = XmlStringHelper.CreateProductXmlString();
+
+            // Create XML Document using Parse()
+            XElement elem = XElement.Parse(xml);
+
+            // Display XML Document
+            Console.WriteLine(elem);
+
+            return elem;
+        }
+        #endregion
     }
-    #endregion
-
-    #region ParseStringIntoXElement Method
-    /// <summary>
-    /// Create an XML string and parse that into an XML document using XElement
-    /// </summary>
-    public XElement ParseStringIntoXElement() {
-      string xml = XmlStringHelper.CreateProductXmlString();
-
-      // Create XML Document using Parse()
-      XElement elem = XElement.Parse(xml);
-
-      // Display XML Document
-      Console.WriteLine(elem);
-
-      return elem;
-    }
-    #endregion
-  }
 }
