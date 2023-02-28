@@ -1,14 +1,14 @@
 ﻿namespace XMLSamples
 {
-  /// <summary>
-  /// Class for working with XML Strings
-  /// </summary>
-  public class XmlStringHelper
-  {
-    #region CreateProductXmlString Method
-    public static string CreateProductXmlString()
+    /// <summary>
+    /// Class for working with XML Strings
+    /// </summary>
+    public class XmlStringHelper
     {
-      return @"<Products>
+        #region CreateProductXmlString Method
+        public static string CreateProductXmlString()
+        {
+            return @"<Products>
                 <Product>
                   <ProductID>706</ProductID>
                   <Name>HL Road Frame - Red, 58</Name>
@@ -27,7 +27,7 @@
                   <Size />
                 </Product>
               </Products>";
+        }
+        #endregion
     }
-    #endregion
-  }
 }
