@@ -1,10 +1,12 @@
 ﻿using XMLSamples;
 
-// Create instance of view model
 ElementViewModel vm = new();
 
-// Call Sample Method
+Console.WriteLine("Get all with XDocument");
 vm.GetAllXDocument();
 
-// Stop console to view results
+
+Console.WriteLine("Get all with XElement");
+vm.GetAllXElement();
+
 Console.ReadKey();
