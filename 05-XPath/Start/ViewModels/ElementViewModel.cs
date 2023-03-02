@@ -77,7 +77,7 @@ namespace XMLSamples
             XElement elem = XElement.Load(XmlFileName);
             List<XElement> list = new();
 
-            // TODO: Write Query Here
+            list = elem.XPathSelectElements("/Product").ToList();
 
             // NOTE: The ProductNumber in one of the elements contains a null
             foreach (XElement prod in list)
@@ -105,7 +105,7 @@ namespace XMLSamples
             XElement elem = XElement.Load(XmlFileName);
             List<XElement> list = new();
 
-            // TODO: Write Query Here
+            list = elem.XPathSelectElements("/Product").ToList();
 
 
             // NOTE: The ProductNumber in one of the elements contains a null
@@ -132,10 +132,7 @@ namespace XMLSamples
         public XElement GetASingleNode()
         {
             XElement elem = XElement.Load(XmlFileName);
-            XElement prod = null;
-
-            // TODO: Write Query Here
-
+            XElement prod = elem.XPathSelectElement("/Product[ProductID='706']");
 
             if (prod != null)
             {
@@ -161,10 +158,7 @@ namespace XMLSamples
         public List<XElement> GetACollectionOfNodes()
         {
             XElement elem = XElement.Load(XmlFileName);
-            List<XElement> list = new();
-
-            // TODO: Write Query Here
-
+            List<XElement> list = elem.XPathSelectElements("/Product[Color='Red']").ToList();
 
             foreach (XElement prod in list)
             {
