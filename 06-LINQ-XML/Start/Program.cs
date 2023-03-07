@@ -1,10 +1,24 @@
 ﻿using XMLSamples;
 
-// Create instance of view model
 ElementViewModel vm = new();
 
-// Call Sample Method
+Console.WriteLine("Get all documents");
 vm.GetAllXDocument();
 
-// Stop console to view results
-Console.ReadKey();
+Console.WriteLine("\n\nGet all elements");
+vm.GetAllXElement();
+
+Console.WriteLine("\n\nGet all silver products");
+vm.WhereClause();
+
+Console.WriteLine("\n\nGet product by id");
+vm.GetASingleNode();
+
+Console.WriteLine("\n\nOrder products by color and price");
+vm.OrderBy();
+
+Console.WriteLine("\n\nConvert xml to c# classes");
+vm.AddToClass();
+
+Console.WriteLine("\n\nJoin products with orders");
+vm.Join();
