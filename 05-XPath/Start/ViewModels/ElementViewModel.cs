@@ -183,9 +183,7 @@ namespace XMLSamples
         public XElement GetLastNode()
         {
             XElement elem = XElement.Load(XmlFileName);
-            XElement prod = null;
-
-            // TODO: Write Query Here
+            XElement prod = elem.XPathSelectElement("/Product[last()]");
 
 
             if (prod != null)
@@ -212,10 +210,7 @@ namespace XMLSamples
         public List<XElement> GetFirstThreeNodes()
         {
             XElement elem = XElement.Load(XmlFileName);
-            List<XElement> list = new();
-
-            // TODO: Write Query Here
-
+            List<XElement> list = elem.XPathSelectElements("/Product[position()<=3]").ToList();
 
             foreach (XElement prod in list)
             {
@@ -240,12 +235,9 @@ namespace XMLSamples
         public List<Product> AddToClass()
         {
             XElement elem = XElement.Load(XmlFileName);
+            IEnumerable<XElement> query = elem.XPathSelectElements("/Product[Color='Silver']");
             List<Product> list = new();
 
-            // TODO: Write Query Here
-            IEnumerable<XElement> query = null;
-
-            // Write Query Here
             foreach (XElement prod in query)
             {
                 list.Add(new Product
