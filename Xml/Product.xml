@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<Product xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProductID>999</ProductID>
+  <Name>A New Product</Name>
+  <ProductNumber>NEW-999</ProductNumber>
+  <Color>White</Color>
+  <StandardCost>10</StandardCost>
+  <ListPrice>20</ListPrice>
+  <Size>Medium</Size>
+  <ModifiedDate>2022-01-01T00:00:00</ModifiedDate>
+</Product>

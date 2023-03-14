@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<ProductSales xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProductID>680</ProductID>
+  <Name>HL Road Frame - Black, 58</Name>
+  <Color>Black</Color>
+  <StandardCost>1059.31</StandardCost>
+  <ListPrice>1431.50</ListPrice>
+  <Size>58</Size>
+  <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+  <SalesForProduct>
+    <SalesOrder>
+      <SalesOrderID>71774</SalesOrderID>
+      <OrderQty>1</OrderQty>
+      <ProductID>680</ProductID>
+      <UnitPrice>1431.50</UnitPrice>
+      <LineTotal>1431.50</LineTotal>
+    </SalesOrder>
+    <SalesOrder>
+      <SalesOrderID>71776</SalesOrderID>
+      <OrderQty>10</OrderQty>
+      <ProductID>680</ProductID>
+      <UnitPrice>8.99</UnitPrice>
+      <LineTotal>80.99</LineTotal>
+    </SalesOrder>
+    <SalesOrder>
+      <SalesOrderID>71778</SalesOrderID>
+      <OrderQty>3</OrderQty>
+      <ProductID>680</ProductID>
+      <UnitPrice>1431.50</UnitPrice>
+      <LineTotal>4294.5</LineTotal>
+    </SalesOrder>
+  </SalesForProduct>
+</ProductSales>
