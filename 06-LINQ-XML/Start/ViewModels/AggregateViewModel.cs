@@ -22,8 +22,7 @@ namespace XMLSamples
         {
             XElement elem = XElement.Load(XmlFileName);
 
-            // TODO: Write Query Here
-            int value = 0;
+            int value = elem.Elements("SalesOrderDetail").Count();
 
             // Display Count
             Console.WriteLine(value);
@@ -41,7 +40,10 @@ namespace XMLSamples
             XElement elem = XElement.Load(XmlFileName);
 
             // TODO: Write Query Here
-            decimal value = 0;
+            decimal value = elem
+                .Elements("SalesOrderDetail")
+                .Select(p => p.GetAs<decimal>("LineTotal", 0))
+                .Sum();
 
             // Display Sum
             Console.WriteLine(value.ToString("c"));
@@ -59,7 +61,10 @@ namespace XMLSamples
             XElement elem = XElement.Load(XmlFileName);
 
             // TODO: Write Query Here
-            decimal value = 0;
+            decimal value = elem
+                .Elements("SalesOrderDetail")
+                .Select(p => p.GetAs<decimal>("LineTotal", 0))
+                .Average();
 
             // Display Average
             Console.WriteLine(value.ToString("c"));
@@ -77,7 +82,10 @@ namespace XMLSamples
             XElement elem = XElement.Load(XmlFileName);
 
             // TODO: Write Query Here
-            decimal value = 0;
+            decimal value = elem
+                .Elements("SalesOrderDetail")
+                .Select(p => p.GetAs<decimal>("LineTotal", 0))
+                .Min();
 
             // Display Minimum
             Console.WriteLine(value.ToString("c"));
@@ -95,7 +103,10 @@ namespace XMLSamples
             XElement elem = XElement.Load(XmlFileName);
 
             // TODO: Write Query Here
-            decimal value = 0;
+            decimal value = elem
+              .Elements("SalesOrderDetail")
+              .Select(p => p.GetAs<decimal>("LineTotal", 0))
+              .Max();
 
             // Display Maximum
             Console.WriteLine(value.ToString("c"));

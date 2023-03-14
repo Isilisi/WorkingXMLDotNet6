@@ -21,10 +21,7 @@ namespace XMLSamples
         public List<XElement> GetAll()
         {
             XElement elem = XElement.Load(XmlFileName);
-            List<XElement> list = new();
-
-            // TODO: Write Query Here
-
+            List<XElement> list = elem.Elements("Product").ToList();
 
             foreach (XElement prod in list)
             {
@@ -52,10 +49,7 @@ namespace XMLSamples
         public List<XElement> GetAllUsingExtensionMethod()
         {
             XElement elem = XElement.Load(XmlFileName);
-            List<XElement> list = new();
-
-            // TODO: Write Query Here
-
+            List<XElement> list = elem.Elements("Product").ToList();
 
             foreach (XElement prod in list)
             {
@@ -83,11 +77,10 @@ namespace XMLSamples
         public XElement GetASingleNode()
         {
             XElement elem = XElement.Load(XmlFileName);
-            XElement product = null;
-
-            // TODO: Write Query Here
-            // NOTE: Use extension methods
-
+            XElement product = elem
+                .Elements("Product")
+                .Where(p => p.GetAttrAs<int>("ProductID") == 706)
+                .SingleOrDefault();
 
             if (product != null)
             {
@@ -116,10 +109,11 @@ namespace XMLSamples
         public List<XElement> OrderBy()
         {
             XElement elem = XElement.Load(XmlFileName);
-            List<XElement> list = new();
-
-            // TODO: Write Query Here
-
+            List<XElement> list = elem
+                .Elements("Product")
+                .OrderBy(p => p.GetAttrAs<string>("Color"))
+                .ThenBy(p => p.GetAttrAs<decimal>("ListPrice"))
+                .ToList();
 
             foreach (XElement prod in list)
             {

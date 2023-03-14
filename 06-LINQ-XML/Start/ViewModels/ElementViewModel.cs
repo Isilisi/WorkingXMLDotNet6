@@ -209,10 +209,10 @@ namespace XMLSamples
         public List<XElement> GetSalesWithDetails()
         {
             XElement elem = XElement.Load(FileNameHelper.SalesAndDetailsFile);
-            List<XElement> list = new();
-
-            // TODO: Write Query Here
-
+            List<XElement> list = elem
+                .Elements("SalesOrderHeader")
+                .Where(order => order.Element("SalesOrderDetails") is not null)
+                .ToList();
 
             // Display Elements
             foreach (XElement order in list)
@@ -235,10 +235,11 @@ namespace XMLSamples
         public List<XElement> GetSalesLineTotalGreaterThan()
         {
             XElement elem = XElement.Load(FileNameHelper.SalesAndDetailsFile);
-            List<XElement> list = new();
-
-            // TODO: Write Query Here
-
+            List<XElement> list = elem
+                .Elements("SalesOrderHeader")
+                .Where(order => order.Element("SalesOrderDetails") is not null)
+                .Where(order => order.Elements("SalesOrderDetail").Select(x => x.GetAs<decimal>("LineTotal")).Sum() > 5)
+                .ToList();
 
             // Display Elements
             foreach (XElement order in list)
