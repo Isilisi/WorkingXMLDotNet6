@@ -1,10 +1,11 @@
 ﻿using XMLSamples;
- 
-// Create instance of view model
+
 CachingViewModel vm = new();
 
-// Call Sample Method
+Console.WriteLine("Get data");
 vm.GetData();
 
-// Stop console to view results
-Console.ReadKey();
+DetectChangesViewModel vm2 = new();
+
+Console.WriteLine("Detect changes");
+vm2.CompareData();

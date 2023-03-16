@@ -2,25 +2,25 @@
 
 namespace XMLSamples
 {
-  public partial class SalesOrder
-  {
-    public int SalesOrderID { get; set; }
-    public short OrderQty { get; set; }
-    public int ProductID { get; set; }
-    public decimal UnitPrice { get; set; }
-    public decimal LineTotal { get; set; }
-
-    #region ToString Override
-    public override string ToString()
+    public partial class SalesOrder
     {
-      StringBuilder sb = new(1024);
+        public int SalesOrderID { get; set; }
+        public short OrderQty { get; set; }
+        public int ProductID { get; set; }
+        public decimal UnitPrice { get; set; }
+        public decimal LineTotal { get; set; }
 
-      sb.AppendLine($"Order ID: {SalesOrderID}");
-      sb.AppendLine($"   Product ID: {ProductID}   Qty: {OrderQty}");
-      sb.AppendLine($"   Unit Price: {UnitPrice:c}   Total: {LineTotal:c}");
+        #region ToString Override
+        public override string ToString()
+        {
+            StringBuilder sb = new(1024);
 
-      return sb.ToString();
+            sb.AppendLine($"Order ID: {SalesOrderID}");
+            sb.AppendLine($"   Product ID: {ProductID}   Qty: {OrderQty}");
+            sb.AppendLine($"   Unit Price: {UnitPrice:c}   Total: {LineTotal:c}");
+
+            return sb.ToString();
+        }
+        #endregion
     }
-    #endregion
-  }
 }
